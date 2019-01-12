@@ -3,7 +3,7 @@ from setuptools import setup, find_packages
 setup(
     name='mpzmq',
     packages=['mpzmq'],
-    version='0.1',
+    version='0.1.1',
     license='MIT',
     author='Josh Liburdi @jshlbrd',
     author_email='liburdi.joshua@gmail.com',

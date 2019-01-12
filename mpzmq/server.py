@@ -12,13 +12,13 @@ class Worker(multiprocessing.Process):
             Defaults to "127.0.0.1:5560".
     """
     def __init__(self, backend="127.0.0.1:5560"):
-        """Inits Worker with connection settings and runs user-defined init."""
+        """Inits Worker with connection settings."""
         super(Worker, self).__init__()
         self.backend = backend
-        self.init()
 
     def run(self):
-        """Connects to ZeroMQ proxy and runs user-defined work."""
+        """Connects to ZeroMQ proxy, runs user-defined init and work."""
+        self.init()
         context = zmq.Context()
         socket = context.socket(zmq.REP)
         socket.connect("tcp://{}".format(self.backend))
